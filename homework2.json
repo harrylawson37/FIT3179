@@ -1,0 +1,92 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Changing Australian Climate",
+  "repeat": {"row": ["1910", "1965", "2019"]},
+  "resolve": {"scale": {"color": "shared"}},
+  "params": [
+    {
+      "name": "State_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, 1, 2, 3, 4, 5, 6, 7],
+        "labels": ["Show All", "NSW", "VIC", "QLD", "SA", "WA", "TAS", "NT"],
+        "name": "State Selection: "
+      }
+    }
+  ],
+  "spec": {
+    "width": 400,
+    "height": 300,
+    "data": {
+      "url": "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/idkboutthis.csv"
+    },
+    "transform": [
+      {
+        "lookup": "STE",
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/aust_cd66states.topojson",
+            "format": {"type": "topojson", "feature": "aust_cd66states"}
+          },
+          "key": "properties.STE"
+        },
+        "as": "geo"
+      },
+      {"filter": "State_selection == null || datum.STE == State_selection"}
+    ],
+    "projection": {"type": "equirectangular"},
+    "layer": [
+      {
+        "mark": "geoshape",
+        "encoding": {
+          "shape": {"field": "geo", "type": "geojson"},
+          "color": {
+            "type": "quantitative",
+            "title": "Average Daily Maximum Temperature",
+            "field": {"repeat": "row"},
+            "scale": {"scheme": "reds", "domain": [15, 35]}
+          },
+          "tooltip": [
+            {
+              "field": "STE",
+              "type": "nominal",
+              "title": "State",
+              "format": ","
+            },
+            {
+              "field": "1910",
+              "type": "quantitative",
+              "title": "Temperature (Celsius) in 1910",
+              "format": ","
+            },
+            {
+              "field": "1965",
+              "type": "quantitative",
+              "title": "Temperature (Celsius) in 1965",
+              "format": ","
+            },
+            {
+              "field": "2019",
+              "type": "quantitative",
+              "title": "Temperature (Celsius) in 2019",
+              "format": ","
+            }
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "dy": -10,
+          "fontSize": 115,
+          "fontStyle": "italic"
+        },
+        "encoding": {
+          "text": {"field": "STE", "type": "nominal"},
+          "color": {"value": "black"}
+        }
+      }
+    ]
+  },
+  "config": {}
+}

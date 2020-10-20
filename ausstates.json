@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Average Max Temperature 1910-2019",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/aust_cd66states.topojson",
+    "format": {"type": "topojson", "feature": "aust_cd66states"}
+  },
+  "params": [
+    {
+      "name": "Pyear",
+      "value": null,
+      "bind": {
+        "input": "range",
+        "min": 1910,
+        "max": 2000,
+        "step": 1,
+        "name": "Year: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "lookup": "properties.STE",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/fulldataset.csv"
+        },
+        "key": "STE",
+        "fields": ["Avgtemp"]
+      }
+    },
+    {"calculate": "datum.Avgtemp", "as": "Avgtemp"}
+  ],
+  "projection": {"type": "equirectangular"},
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Avgtemp",
+      "type": "quantitative",
+      "scale": {"type": "linear"}
+    },
+    "tooltip": [
+      {"field": "properties.STE", "type": "nominal", "title": "State"},
+      {"field": "Avgtemp", "type": "quantitative"}
+    ]
+  },
+  "config": {}
+}

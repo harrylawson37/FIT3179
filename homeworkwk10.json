@@ -1,0 +1,94 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 600,
+  "title": "Endangered Species Affected by the Bushfire",
+  "data": {
+    "url": "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/species.csv"
+  },
+  "params": [
+    {
+      "name": "species_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Bird",
+          "Fish",
+          "Frog",
+          "Insect",
+          "Mammal",
+          "Reptile",
+          "Spider"
+        ],
+        "labels": [
+          "Show All",
+          "Bird",
+          "Fish",
+          "Frog",
+          "Insect",
+          "Mammal",
+          "Reptile",
+          "Spider"
+        ],
+        "name": "Species Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "species_selection == null || datum.Species == species_selection"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Species",
+      "type": "nominal",
+      "title": "Species",
+      "axis": null
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "scale": {"domain": [0, 16]},
+      "title": "Count",
+      "axis": {"grid": false}
+    }
+  },
+  "layer": [
+    {
+      "selection": {
+        "continent_highlight": {
+          "type": "multi",
+          "fields": ["Type"],
+          "bind": "legend"
+        }
+      },
+      "mark": "bar",
+      "encoding": {
+        "color": {
+          "field": "Type",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Critically Endangered", "Endangered", "Vulnerable"],
+            "range": ["#e7ba52", "#c7c7c7", "#1f77b4"]
+          },
+          "title": "Endangered Type"
+        },
+        "opacity": {
+          "condition": {"selection": "continent_highlight", "value": 1},
+          "value": 0.2
+        },
+        "tooltip": [
+          {"field": "Species", "type": "nominal"},
+          {"field": "Type", "type": "nominal"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "center", "dy": -10},
+      "encoding": {"text": {"field": "Species", "type": "nominal"}}
+    }
+  ],
+  "config": {"view": {"stroke": "transparent"}, "axis": {"domainWidth": 1}}
+}

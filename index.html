@@ -129,6 +129,14 @@
   vegaEmbed('#vis2', spec).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
+  var spec = "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/hectareslost.json";
+  vegaEmbed('#vis3', spec).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  var spec = "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/deaths.json";
+  vegaEmbed('#vis4', spec).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
 </script>
 </body>
 </html>

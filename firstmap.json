@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 350,
+  "height": 270,
+  "title": "Australian Bushfires 2019/20",
+  "projection": {"type": "equirectangular"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/aust_cd66states.json",
+        "format": {"type": "topojson", "feature": "aust_cd66states"}
+      },
+      "mark": {"type": "geoshape", "fill": "#c6c9c7", "stroke": "white"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/fire_archive_V1_96617%202%20copy.csv"
+      },
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"}
+      },
+      "layer": [
+        {
+          "mark": {"type": "circle", "tooltip": true},
+          "encoding": {
+            "color": {
+              "field": "Fire Radiative Power",
+              "type": "quantitative",
+              "scale": {"type": "log", "scheme": "reds", "reverse": false}
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "config": {"view": {"stroke": "transparent"}, "axis": {"domainWidth": 1}}
+}

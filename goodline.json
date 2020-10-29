@@ -1,0 +1,19 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 400,
+  "height": 150,
+  "title": "Australian Yearly CO2 Emissions",
+  "data": {
+    "url": "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/emission%20data.csv"
+  },
+  "mark": {"type": "line", "color": "#a90308"},
+  "encoding": {
+    "x": {"field": "Year", "type": "temporal", "axis": {"grid": false}},
+    "y": {
+      "field": "CO2 Emissions",
+      "type": "quantitative",
+      "axis": {"grid": false}
+    }
+  },
+  "config": {"view": {"stroke": "transparent"}, "axis": {"domainWidth": 1}}
+}

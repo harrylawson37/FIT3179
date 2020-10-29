@@ -8,11 +8,11 @@
   },
   "mark": {"type": "line", "color": "#a90308"},
   "encoding": {
-    "x": {"field": "Year", "type": "temporal", "axis": {"grid": false, titleFont: "MyFont"}},
+    "x": {"field": "Year", "type": "temporal", "axis": {"grid": false}},
     "y": {
       "field": "CO2 Emissions",
       "type": "quantitative",
-      "axis": {"grid": false, titleFont: "MyFont"}
+      "axis": {"grid": false}
     }
   },
   "config": {"view": {"stroke": "transparent"}, "axis": {"domainWidth": 1}}

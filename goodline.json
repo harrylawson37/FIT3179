@@ -15,5 +15,5 @@
       "axis": {"grid": false}
     }
   },
-  "config": {"view": {"stroke": "transparent"}, "axis": {"domainWidth": 1}}
+  "config": {"view": {"stroke": "transparent"}, "axis": {"domainWidth": 1, "titleFont": "Open Sans"}}
 }

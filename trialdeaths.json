@@ -42,5 +42,8 @@
       "encoding": {"text": {"field": "Type", "type": "nominal"}}
     }
   ],
-  "config": {"view": {"stroke": "transparent"}, "axis": {"domainWidth": 1}}
+  "config": {"view": {"stroke": "transparent"}, 
+             "axis": {"domainWidth": 1, "titleFont": "Open Sans", "labelFont": "Open Sans"},
+             "title": {"font": "Open Sans"}
+  }
 }

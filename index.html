@@ -25,7 +25,7 @@
        background-color: lightgray;
      }
      .page{
-       width: 850px;    
+       width: 950px;    
        background-color: white;   
        margin: auto;
        padding: 50px;
@@ -80,16 +80,28 @@
 
     <!-- pure grid group -->
     <div class="pure-g">
-        <div class="pure-u-1-4">
+        <div class="pure-u-1-2">
           <div id="vis4"  class="vis-container"></div>
-        </div>
-        <div class="pure-u-1-4">
-          <div id="vis3"  class="vis-container"></div>
         </div>
         <div class="pure-u-1-2">
           <div class="description description-right">
             <h2>This is the second section</h2>
-            <p>Similar to the previous section, but the colum partition is swapped. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.</p>
+            <p>Lots of hectares have been lost.</p>
+          </div>
+        </div>
+      
+    </div>
+    <!-- end pure grid group -->
+   
+   <!-- pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+          <div id="vis3"  class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-2">
+          <div class="description description-right">
+            <h2>This is the third section</h2>
+            <p>People died.</p>
           </div>
         </div>
       
@@ -100,7 +112,7 @@
     <div class="pure-g">
       <div class="pure-u-1-2">
         <div class="description description-left">
-          <h2>This is the third section</h2>
+          <h2>This is the fourth section</h2>
           <p>Using all three columns without merging. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.</p>
         </div>
       </div>
@@ -128,11 +140,11 @@
   vegaEmbed('#vis2', spec, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
-  var spec = "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/hectareslost.json";
+  var spec = "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/trialhect.json";
   vegaEmbed('#vis3', spec, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
-  var spec = "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/deaths.json";
+  var spec = "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/trialdeaths.json";
   vegaEmbed('#vis4', spec, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);

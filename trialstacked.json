@@ -1,0 +1,86 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 400,
+  "height": 200,
+  "title": {
+    "text": "Endangered Species Affected by the Bushfire",
+    "fontSize": 15
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/species.csv"
+  },
+  "params": [
+    {
+      "name": "species_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "Critically Endangered", "Endangered", "Vulnerable"],
+        "labels": [
+          "Show All",
+          "Critically Endangered",
+          "Endangered",
+          "Vulnerable"
+        ],
+        "name": "Endangered Type Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "species_selection == null || datum.Type == species_selection"},
+    {
+      "calculate": "{'Bird': '🐥', 'Fish': '🐟', 'Frog': '🐸',  'Insect': '🦗', 'Wallaby': '🦘', 'Spider': '🕷', 'Snake': '🐍', 'Mouse': '🐀', 'Koala': '🐨', 'Echidna': '🦔'}[datum.Species]",
+      "as": "emoji"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Species",
+      "type": "nominal",
+      "title": "Species",
+      "axis": null
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "scale": {"domain": [0, 16]},
+      "title": "",
+      "axis": {"grid": false}
+    }
+  },
+  "layer": [
+    {
+      "selection": {
+        "continent_highlight": {
+          "type": "multi",
+          "fields": ["Type"],
+          "bind": "legend"
+        }
+      },
+      "mark": "bar",
+      "encoding": {
+        "color": {
+          "field": "Type",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Critically Endangered", "Endangered", "Vulnerable"],
+            "range": ["#a90308", "#e50000", "#f29e8e"]
+          },
+          "title": "Endangered Type"
+        },
+        "opacity": {
+          "condition": {"selection": "continent_highlight", "value": 1},
+          "value": 0.2
+        },
+        "tooltip": [
+          {"field": "Species", "type": "nominal"},
+          {"field": "Type", "type": "nominal"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "center", "dy": -10, "fontSize": 20},
+      "encoding": {"text": {"field": "emoji", "type": "nominal"}}
+    }
+  ],
+  "config": {"view": {"stroke": "transparent"}, "axis": {"domainWidth": 1}}
+}

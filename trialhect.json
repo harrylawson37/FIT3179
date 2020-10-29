@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 450,
+  "width": 400,
   "height": 100,
   "title": {"text": "Hectares Lost", "fontSize": 15},
   "data": {

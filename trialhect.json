@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 450,
+  "height": 100,
+  "title": {"text": "Hectares Lost", "fontSize": 15},
+  "data": {
+    "url": "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/Hectares.csv"
+  },
+  "encoding": {
+    "x": {
+      "field": "Hectares Lost",
+      "type": "quantitative",
+      "title": null,
+      "axis": {"grid": false}
+    },
+    "y": {"field": "Year", "type": "nominal", "axis": null, "title": "Year"}
+  },
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "tooltip": [
+          {"field": "Name", "type": "nominal"},
+          {"field": "Hectares Lost", "type": "quantitative"}
+        ],
+        "color": {
+          "field": "Year",
+          "type": "nominal",
+          "scale": {
+            "domain": ["1983", "2009", "2020"],
+            "range": ["#c6c9c7", "#c6c9c7", "#a90308"]
+          },
+          "legend": null
+        }
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "center", "dx": 12, "fontSize": 9},
+      "encoding": {"text": {"field": "Year", "type": "nominal"}}
+    }
+  ],
+  "config": {"view": {"stroke": "transparent"}, "axis": {"domainWidth": 1}}
+}

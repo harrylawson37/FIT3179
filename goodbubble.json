@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 400,
+  "height": 200,
+  "title": "World Renewable Energy vs CO2 Emissions",
+  "data": {
+    "url": "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/Sustainability.csv"
+  },
+  "params": [
+    {
+      "name": "Population_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 125000,
+        "step": 1000,
+        "name": "Minimum Population: "
+      }
+    }
+  ],
+  "transform": [{"filter": "datum.GDP_per_Capita > Population_Above"}],
+  "encoding": {
+    "x": {
+      "field": "CO2P",
+      "type": "quantitative",
+      "title": "CO2P",
+      "scale": {"domain": [0, 1200]}
+    },
+    "y": {
+      "field": "REP",
+      "type": "quantitative",
+      "scale": {"domain": [0, 0.055]}
+    }
+  },
+  "layer": [
+    {
+      "mark": "circle",
+      "encoding": {
+        "size": {"field": "GDP_per_Capita", "type": "quantitative"},
+        "color": {
+          "condition": {
+            "test": "datum['Country'] == 'Australia' || datum['Country'] == 'United States of America' || datum['Country'] == 'Iceland'|| datum['Country'] == 'Norway'",
+            "value": "#e41a1c"
+          },
+          "value": "#c6c9c7"
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "CO2_Emissions", "type": "quantitative"},
+          {"field": "CO2P", "type": "quantitative", "format": ","},
+          {"field": "REP", "type": "quantitative", "format": ","},
+          {"field": "Renewable_Energy", "type": "quantitative", "format": ","},
+          {"field": "GDP_per_Capita", "type": "quantitative", "format": ","}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dy": -14,
+        "fontSize": 12,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country'] == 'United States of America' || datum['Country'] == 'Australia' || datum['Country'] == 'Norway' || datum['Country'] == 'Iceland'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "CO2_Emissions", "type": "nominal"},
+          {"field": "CO2P", "type": "quantitative", "format": ","},
+          {"field": "REP", "type": "quantitative", "format": ","},
+          {"field": "Renewable_Energy", "type": "quantitative", "format": ","},
+          {"field": "GDP_per_Capita", "type": "quantitative", "format": ","}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}

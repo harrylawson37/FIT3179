@@ -36,6 +36,7 @@
   ],
   "config": {"view": {"stroke": "transparent"}, 
              "axis": {"domainWidth": 1, "titleFont": "Open Sans", "labelFont": "Open Sans"},
-             "title": {"font": "Open Sans"}
+             "title": {"font": "Open Sans"},
+             "legend": {"labelFont": "Open Sans", "titleFont": "Open Sans"}
   }
 }

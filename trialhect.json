@@ -36,7 +36,7 @@
     },
     {
       "mark": {"type": "text", "align": "center", "dx": 45, "fontSize": 10},
-      "encoding": {"text": {"field": "Year", "type": "nominal"}}
+      "encoding": {"text": {"field": "Name", "type": "nominal"}}
     }
   ],
   "config": {"view": {"stroke": "transparent"}, 

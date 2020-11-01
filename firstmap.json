@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 350,
   "height": 270,
-  "title": "Australian Bushfires 2019/20",
+  "title": {"text":"Australian Bushfires 2019/20", "fontSize": 20},
   "projection": {"type": "equirectangular"},
   "layer": [
     {

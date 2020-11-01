@@ -31,7 +31,8 @@
             "range": ["#c6c9c7", "#c6c9c7", "#a90308"]
           },
           "legend": null
-        }
+        },
+        "size": {"value": 27}
       }
     },
     {

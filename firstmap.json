@@ -29,7 +29,8 @@
               "type": "quantitative",
               "scale": {"type": "log", "scheme": "reds", "reverse": false}
             }
-          }
+          },
+          "size": {"value": 1}
         }
       ]
     }

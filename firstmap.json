@@ -22,14 +22,17 @@
       },
       "layer": [
         {
-          "mark": {"type": "circle", "tooltip": true},
+          "mark": {"type": "circle"},
           "encoding": {
             "color": {
               "field": "Fire Radiative Power",
               "type": "quantitative",
               "scale": {"type": "log", "scheme": "reds", "reverse": false}
             },
-            "size": {"value": 1}
+            "size": {"value": 1},
+            "tooltip": [
+              {"field": "Fire Radiative Power", "type": "quantitative"}
+            ]
           }
         }
       ]

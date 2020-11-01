@@ -2,56 +2,61 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 300,
   "height": 200,
-  "title": "World Renewable Energy vs CO2 Emissions",
+  "title": "World Renewable Energy vs CO2 Emissions 2016",
   "data": {
     "url": "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/Sustainability.csv"
   },
   "params": [
     {
-      "name": "Population_Above",
+      "name": "GDP_above",
       "value": 0,
       "bind": {
         "input": "range",
         "min": 0,
         "max": 125000,
         "step": 1000,
-        "name": "Minimum Population: "
+        "name": "Minimum GDP per Capita: "
       }
     }
   ],
-  "transform": [{"filter": "datum.GDP_per_Capita > Population_Above"}],
+  "transform": [
+    {"filter": "datum.GDP_per_Capita > GDP_above"}],
   "encoding": {
     "x": {
       "field": "CO2P",
       "type": "quantitative",
-      "title": "CO2P",
-      "scale": {"domain": [0, 1200]}
+      "title": "CO2 Emissions Per Person",
+      "scale": { "domain": [0, 1200]}
     },
     "y": {
       "field": "REP",
       "type": "quantitative",
-      "scale": {"domain": [0, 0.055]}
+      "title": "Renewable Energy Per Person",
+      "scale": { "domain": [0, 0.055]}
     }
   },
   "layer": [
     {
       "mark": "circle",
       "encoding": {
-        "size": {"field": "GDP_per_Capita", "type": "quantitative"},
+        "size": {
+          "field": "GDP_per_Capita",
+          "type": "quantitative",
+          "title": "GDP per Capita"
+        },
         "color": {
           "condition": {
             "test": "datum['Country'] == 'Australia' || datum['Country'] == 'United States of America' || datum['Country'] == 'Iceland'|| datum['Country'] == 'Norway'",
             "value": "#e41a1c"
-          },
-          "value": "#c6c9c7"
+        }, "value": "#c6c9c7"
         },
         "tooltip": [
           {"field": "Country", "type": "nominal"},
-          {"field": "CO2_Emissions", "type": "quantitative"},
-          {"field": "CO2P", "type": "quantitative", "format": ","},
-          {"field": "REP", "type": "quantitative", "format": ","},
-          {"field": "Renewable_Energy", "type": "quantitative", "format": ","},
-          {"field": "GDP_per_Capita", "type": "quantitative", "format": ","}
+          {"field": "GDP_per_Capita", "type": "quantitative", "format": ",", "title": "GDP per Capita"},
+          {"field": "CO2_Emissions", "type": "nominal", "title": "CO2 Emissions"},
+          {"field": "CO2P", "type": "quantitative", "format": ",", "title": "CO2 Emissions Per Person"},
+          {"field": "Renewable_Energy", "type": "quantitative", "format": ",", "title": "Renewable Energy (GWh)"},
+          {"field": "REP", "type": "quantitative", "format": ",", "title": "Renewable Energy Per Person"}
         ]
       }
     },
@@ -76,16 +81,16 @@
         },
         "tooltip": [
           {"field": "Country", "type": "nominal"},
-          {"field": "CO2_Emissions", "type": "nominal"},
-          {"field": "CO2P", "type": "quantitative", "format": ","},
-          {"field": "REP", "type": "quantitative", "format": ","},
-          {"field": "Renewable_Energy", "type": "quantitative", "format": ","},
-          {"field": "GDP_per_Capita", "type": "quantitative", "format": ","}
+          {"field": "GDP_per_Capita", "type": "quantitative", "format": ",", "title": "GDP per Capita"},
+          {"field": "CO2_Emissions", "type": "nominal", "title": "CO2 Emissions"},
+          {"field": "CO2P", "type": "quantitative", "format": ",", "title": "CO2 Emissions Per Person"},
+          {"field": "Renewable_Energy", "type": "quantitative", "format": ",", "title": "Renewable Energy (GWh)"},
+          {"field": "REP", "type": "quantitative", "format": ",", "title": "Renewable Energy Per Person"}
         ]
       }
     }
-  ],
-  "config": {"view": {"stroke": "transparent"}, 
+   ],
+   "config": {"view": {"stroke": "transparent"}, 
              "axis": {"domainWidth": 1, "titleFont": "Open Sans", "labelFont": "Open Sans"},
              "title": {"font": "Open Sans"},
              "legend": {"labelFont": "Open Sans", "titleFont": "Open Sans"}

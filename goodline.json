@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 300,
+  "width": 350,
   "height": 150,
   "title": {"text":"Australian Yearly CO2 Emissions", "fontSize": 15},
   "data": {

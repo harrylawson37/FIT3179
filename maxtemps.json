@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": {"text":"Change in Average Max Temperature for Each Decade","fontSize": 15},
+  "title": {"text":"Change in Average Daily Max Temperature for Each Decade","fontSize": 15},
   "width": 400,
   "height": 300,
   "projection": {"type": "equirectangular"},

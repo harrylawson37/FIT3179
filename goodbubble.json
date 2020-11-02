@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 285,
+  "width": 278,
   "height": 200,
   "title": {"text":"World Renewable Electricity Production (REP) vs CO2 Emissions 2016","fontSize": 15},
   "data": {

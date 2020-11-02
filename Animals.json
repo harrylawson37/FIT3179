@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 300,
+  "width": 325,
   "height": 200,
   "title": {
     "text": "Endangered Species Affected by the Bushfire",

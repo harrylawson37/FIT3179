@@ -16,7 +16,7 @@
         "min": 1970,
         "max": 2020,
         "step": 10,
-        "name": "Year: "
+        "name": "Decade: "
       }
     }
   ],

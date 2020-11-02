@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 300,
   "height": 200,
-  "title": {"text":"World Renewable Energy vs CO2 Emissions 2016","fontSize": 15},
+  "title": {"text":"World Renewable Electricity Production vs CO2 Emissions 2016","fontSize": 15},
   "data": {
     "url": "https://raw.githubusercontent.com/harrylawson37/FIT3179/main/Sustainability.csv"
   },
@@ -31,7 +31,7 @@
     "y": {
       "field": "REP",
       "type": "quantitative",
-      "title": "Renewable Energy Per Person",
+      "title": "Renewable Electricity Production Per Person",
       "scale": { "domain": [0, 0.055]}
     }
   },
@@ -55,8 +55,8 @@
           {"field": "GDP_per_Capita", "type": "quantitative", "format": ",", "title": "GDP per Capita"},
           {"field": "CO2_Emissions", "type": "nominal", "title": "CO2 Emissions"},
           {"field": "CO2P", "type": "quantitative", "format": ",", "title": "CO2 Emissions Per Person"},
-          {"field": "Renewable_Energy", "type": "quantitative", "format": ",", "title": "Renewable Energy (GWh)"},
-          {"field": "REP", "type": "quantitative", "format": ",", "title": "Renewable Energy Per Person"}
+          {"field": "Renewable_Energy", "type": "quantitative", "format": ",", "title": "Renewable Electricity Production (GWh)"},
+          {"field": "REP", "type": "quantitative", "format": ",", "title": "Renewable Electricity Production Per Person"}
         ]
       }
     },
@@ -84,8 +84,8 @@
           {"field": "GDP_per_Capita", "type": "quantitative", "format": ",", "title": "GDP per Capita"},
           {"field": "CO2_Emissions", "type": "nominal", "title": "CO2 Emissions"},
           {"field": "CO2P", "type": "quantitative", "format": ",", "title": "CO2 Emissions Per Person"},
-          {"field": "Renewable_Energy", "type": "quantitative", "format": ",", "title": "Renewable Energy (GWh)"},
-          {"field": "REP", "type": "quantitative", "format": ",", "title": "Renewable Energy Per Person"}
+          {"field": "Renewable_Energy", "type": "quantitative", "format": ",", "title": "Renewable Electricity Production (GWh)"},
+          {"field": "REP", "type": "quantitative", "format": ",", "title": "Renewable Electricity Production Per Person"}
         ]
       }
     }

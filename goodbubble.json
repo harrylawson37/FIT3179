@@ -47,7 +47,7 @@
         "color": {
           "condition": {
             "test": "datum['Country'] == 'Australia' || datum['Country'] == 'United States of America' || datum['Country'] == 'Iceland'|| datum['Country'] == 'Norway'",
-            "value": "#e41a1c"
+            "value": "#a90308"
         }, "value": "#c6c9c7"
         },
         "tooltip": [

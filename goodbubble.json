@@ -26,12 +26,14 @@
       "field": "CO2P",
       "type": "quantitative",
       "title": "CO2 Emissions Per Person",
+      "axis": {"grid": false},
       "scale": { "domain": [0, 1200]}
     },
     "y": {
       "field": "REP",
       "type": "quantitative",
       "title": "REP Per Person",
+      "axis": {"grid": false},
       "scale": { "domain": [0, 0.055]}
     }
   },
